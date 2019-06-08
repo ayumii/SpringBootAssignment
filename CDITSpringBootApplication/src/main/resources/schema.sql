@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS employee;
+
+CREATE TABLE employee(
+id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+createAt timestamp DEFAULT CURRENT_TIMESTAMP,
+firstName VARCHAR(255) NOT NULL, 
+lastName VARCHAR(255) NOT NULL, 
+salary FLOAT(10,2) NOT NULL,
+isActive boolean DEFAULT true
+);
