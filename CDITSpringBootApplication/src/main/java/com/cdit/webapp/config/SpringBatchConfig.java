@@ -21,7 +21,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
 import com.cdit.webapp.model.Employee;
-import com.cdit.webapp.processor.EmployeeProcessor;
 
 @Configuration
 @EnableBatchProcessing
