@@ -7,10 +7,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
+import com.cdit.webapp.constants.Const;
 import com.cdit.webapp.model.Employee;
 
 
@@ -29,9 +28,9 @@ public class EmployeeRepository {
 			@Override
 			public Employee mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Employee employee = new Employee();
-				employee.setFirstName(rs.getString("firstName"));
-				employee.setLastName(rs.getString("lastName"));
-				employee.setSalary(rs.getFloat("salary"));
+				employee.setFirstName(rs.getString(Const.EMPLOYEE_FIRST_NAME));
+				employee.setLastName(rs.getString(Const.EMPLOYEE_LAST_NAME));
+				employee.setSalary(rs.getFloat(Const.EMPLOYEE_SALARY));
 				return employee;
 			}
 			

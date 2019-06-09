@@ -1,5 +1,6 @@
 package com.cdit.webapp.controller;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +17,11 @@ public class EmployeeController {
 	private EmployeeRepository employeeRepository;
 	
 	@GetMapping("/users")
-	public ResponseEntity<Object> getUsers(){
-		return new ResponseEntity<>(employeeRepository.getEmployee(Const.MIN_SALARY, Const.MAX_SALARY), HttpStatus.OK);	
-		}
+	public ResponseEntity<String> getUsers(){
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put(Const.EMPLOYEE_RESULTS, employeeRepository.getEmployee(Const.MIN_SALARY, Const.MAX_SALARY));
+		return new ResponseEntity<>(jsonObject.toString(), HttpStatus.OK);
+				
+	}
 
 }
